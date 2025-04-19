@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Noticias de Tecnología</title>
+    <link href="https://www.ejemplo.com"/>
+    <updated>2025-02-27T12:00:00Z</updated>
+    <author>
+        <name>Redacción Tecnología</name>
+    </author>
+    <id>https://www.ejemplo.com/feed</id>
+
+    <entry>
+        <title>Nuevo lanzamiento de procesadores AMD</title>
+        <link href="https://www.ejemplo.com/amd-lanzamiento"/>
+        <id>https://www.ejemplo.com/amd-lanzamiento</id>
+        <updated>2025-02-27T10:30:00Z</updated>
+        <summary><![CDATA[ AMD ha lanzado su nueva <strong>línea de procesadores</strong> con mayor rendimiento y menor consumo energético.]]></summary>
+    </entry>
+
+    <entry>
+        <title>Actualización de seguridad en Windows</title>
+        <link href="https://www.ejemplo.com/windows-seguridad"/>
+        <id>https://www.ejemplo.com/windows-seguridad</id>
+        <updated>2025-02-26T14:00:00Z</updated>
+        <summary>Microsoft ha lanzado una actualización crítica para mejorar la seguridad en Windows 11.</summary>
+    </entry>
+
+    <entry>
+        <title>Google presenta su nueva IA</title>
+        <link href="https://www.ejemplo.com/google-ia"/>
+        <id>https://www.ejemplo.com/google-ia</id>
+        <updated>2025-02-25T09:45:00Z</updated>
+        <summary>Google ha revelado su última inteligencia artificial, diseñada para mejorar la interacción con los usuarios.</summary>
+    </entry>
+
+</feed>
