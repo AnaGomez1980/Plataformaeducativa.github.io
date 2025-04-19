@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Noticias de Tecnología</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    .item {
+      border-bottom: 1px solid #ccc;
+      padding: 15px 0;
+    }
+    .item h2 {
+      margin: 0;
+      font-size: 1.4em;
+    }
+    .item p {
+      margin: 5px 0;
+    }
+    .item .autor {
+      font-style: italic;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Noticias de Tecnología</h1>
+  <div id="contenido">Cargando noticias...</div>
+
+  <script>
+    fetch('atom.atom')
+      .then(response => response.text())
+      .then(data => {
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(data, "application/xml");
+        const entries = xml.getElementsByTagName("entry");
+        const autorGeneral = xml.getElementsByTagName("author")[0]?.getElementsByTagName("name")[0]?.textContent || "";
+        let html = "";
+
+        for (let i = 0; i < entries.length; i++) {
+          const title = entries[i].getElementsByTagName("title")[0].textContent;
+          const link = entries[i].getElementsByTagName("link")[0].getAttribute("href");
+          const summary = entries[i].getElementsByTagName("summary")[0].textContent;
+          const updated = entries[i].getElementsByTagName("updated")[0].textContent;
+
+          html += `
+            <div class="item">
+              <h2><a href="${link}" target="_blank">${title}</a></h2>
+              <p>${summary}</p>
+              <p><strong>Fecha:</strong> ${updated}</p>
+              <p class="autor">Autor: ${autorGeneral}</p>
+            </div>
+          `;
+        }
+
+        document.getElementById("contenido").innerHTML = html;
+      })
+      .catch(error => {
+        document.getElementById("contenido").innerHTML = "Error al cargar el feed Atom.";
+        console.error("Error cargando el Atom:", error);
+      });
+  </script>
+</body>
+</html>
